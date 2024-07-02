@@ -1,2 +1,2 @@
-# ascii-art
-Creating ASCII Art using Python.
+# Python Tinkering
+Things I found interesting, implemented in Python.
