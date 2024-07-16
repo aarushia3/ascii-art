@@ -37,9 +37,51 @@ def renderBoard(board: np.ndarray) -> None:
         print("\n")
     return
 
+def cellInBounds(x: int, y: int, boardRows: int, boardCols: int):
+    '''
+    Returns true if cell is in bounds, false otherwise.
+    
+    Arguments: x, y coordinates of the cell to check, board dimensions.
+    '''
+    if ((x >= 0) and (y >= 0) and (x < boardRows) and (y < boardCols)):
+        return True
+    return False
+
 def countLiveNeighbors(board: np.ndarray, x: int, y: int, boardRowSize: int, boardColSize: int) -> int:
-    # TO DO
-    return 0
+    liven = 0
+    # top cell
+    if (cellInBounds(x - 1, y, boardRowSize, boardColSize)):
+        if (board[x-1][y]):
+            liven += 1
+    # top left cell
+    if (cellInBounds(x - 1, y - 1, boardRowSize, boardColSize)):
+        if (board[x-1][y-1]):
+            liven += 1
+    # top right cell
+    if (cellInBounds(x - 1, y + 1, boardRowSize, boardColSize)):
+        if (board[x-1][y+1]):
+            liven += 1
+    # left cell
+    if (cellInBounds(x, y - 1, boardRowSize, boardColSize)):
+        if (board[x][y-1]):
+            liven += 1
+    # right cell
+    if (cellInBounds(x, y + 1, boardRowSize, boardColSize)):
+        if (board[x][y+1]):
+            liven += 1
+    # bottom cell
+    if (cellInBounds(x + 1, y, boardRowSize, boardColSize)):
+        if (board[x+1][y]):
+            liven += 1
+    # bottom left cell
+    if (cellInBounds(x + 1, y - 1, boardRowSize, boardColSize)):
+        if (board[x+1][y-1]):
+            liven += 1
+    # bottom right cell
+    if (cellInBounds(x + 1, y + 1, boardRowSize, boardColSize)):
+        if (board[x+1][y+1]):
+            liven += 1
+    return liven
 
 def nextBoardState(board: np.ndarray) -> np.ndarray:
     '''
@@ -67,5 +109,5 @@ def nextBoardState(board: np.ndarray) -> np.ndarray:
    
 myDed = deadState(20,30)
 newBoard = randomizeBoard(myDed)
-print(newBoard)
-renderBoard(newBoard)
+# print(newBoard)
+# renderBoard(newBoard)
