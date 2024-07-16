@@ -1,3 +1,7 @@
 from cellInBounds import cellInBoundsTests
+from countLiveNeighbors import countLiveNeighborsTests
+from nextBoardState import nextBoardStateTests
 
 cellInBoundsTests()
+countLiveNeighborsTests()
+nextBoardStateTests()
